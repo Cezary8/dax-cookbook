@@ -92,3 +92,10 @@
   _caption & FORMAT(_recent, "Short Time", "en-EN")
   --_caption & FORMAT(_dt, "Short Date", "en-EN") /////////for recent date
   ```
+
+## Autocalendar
+  Based on min and max date in fact table
+
+  ```
+  Date = CALENDAR(MIN(Utils_Years[Date]), DATE(YEAR(MAX(Utils_Years[Date])),12,31))
+  ```
