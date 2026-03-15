@@ -1,0 +1,27 @@
+# Data Formatting
+
+## formats
+
+Below data formatts with thousand separator
+```
+"#,0,,.0M"  -- Million
+"#,0,.0K",   -- Thousand
+"#,0", -- Single
+```
+
+## formatting based on value of lowest recognized child category
+
+```
+Area label = 
+  var __min_entity = MINX(FILTER(ALL(Schemes[Type]),Schemes[Type]<> "TBC"),[Area])
+  var __r =
+         SWITCH (
+              TRUE(),
+              __min_entity <200000, "#,0,.0K",   -- Thousand
+              __min_entity >=200000, "#,0,,.0M"  -- Million
+          )
+  var __ty = FORMAT([Area],__r)
+  RETURN
+  SELECTEDVALUE(Schemes[Type])&" "&
+  __ty & " (" & ROUND([Area (type share)]*100,0)&"%)"
+```
