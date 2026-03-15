@@ -24,3 +24,20 @@ var _tab =
 RETURN
 MAXX(_tab, [respondents])*1.2
 ```
+
+
+## max based on column with filtered out item
+
+```
+Selected KPI (max) = 
+var _max =
+    MAXX(
+        FILTER(
+            VALUES(facts[NEXT LEASE EVENT YEAR]),
+            facts[NEXT LEASE EVENT YEAR]<> BLANK()
+        ),
+        [Selected KPI]
+    )
+RETURN
+_max * 1.2
+```
