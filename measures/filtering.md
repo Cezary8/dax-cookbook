@@ -21,3 +21,16 @@ CALCULATE(
     ALLSELECTED(Schemes[Type])
 )
 ```
+
+## ALLSELECTED combined with ALLEXCEPT
+There is not excact ALLEXCEPT function that would work for ALLSELECTED. Nevertheless it is possible to get the same result by combining ALLSELECTED with VALUES.
+The idea is to keep in VALUES columns that you want to remove from ALLSELECTED influence
+
+```
+    CALCULATE(
+        DISTINCTCOUNT(q6_satisfaction[Respondent ID]),
+        VALUES(q6_satisfaction[Subcategory_]),
+        VALUES(q6_satisfaction[Question]),
+        ALLSELECTED(q6_satisfaction)
+    )
+```
