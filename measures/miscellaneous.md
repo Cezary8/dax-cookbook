@@ -127,6 +127,12 @@ Snippets that are difficult to categorize
   )
   ```
 
+## 'IN' operator usage
+  
+  ```
+  SELECTEDVALUE(switch_KPI[Choose KPI]) IN {"(%) #buildings", "(val) #buildings"}
+  ```
+
 ## Custom hyperlink icon
   Based on image transformed into base64 format
   Implement that as a calculated column and assign "Umage URL" Data category
