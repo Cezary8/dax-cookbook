@@ -8,3 +8,19 @@
       [ln count]
   ) *1.19
 ```
+
+## v2
+Similar result - more sophisticated approach
+
+```
+Y axis = 
+var _tab =
+    SUMMARIZECOLUMNS(
+        details[Question],
+        DimAnswers[Answer],
+        TREATAS({"Actual workplace time", "Individual preferences", "Team preferences"}, details[Question]),
+        "respondents", DISTINCTCOUNT(details[Respondent ID]) / CALCULATE(DISTINCTCOUNT(details[Respondent ID]), ALLSELECTED(details))
+    )
+RETURN
+MAXX(_tab, [respondents])*1.2
+```
