@@ -4,8 +4,9 @@
 
 Below data formatts with thousand separator
 ```
-"#,0,,.0M"  -- Million
-"#,0,.0K",   -- Thousand
+"#,0,,.0M"  -- Million and one decimal digit
+"#,0,.0K",   -- Thousand and one decimal digit
+"#,0,K",  -- Thousands without decimal digit
 "#,0", -- Single
 ```
 
